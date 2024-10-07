@@ -1,0 +1,75 @@
+{
+  "name": "static",
+  "displayName": "Static",
+  "description": "Work on multiple static creatives in one overview.",
+  "version": "0.0.2",
+  "author": "Erik Handels",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erikhandels/static.git"
+  },
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "static.createZip",
+        "title": "Static: Create Zip archives"
+      },
+      {
+        "command": "static.staticPreview",
+        "title": "Static: Preview set"
+      },
+      {
+        "command": "static.tinyfy",
+        "title": "Static: Tinyfy all assets (overwrites existing files)"
+      },
+      {
+        "command": "static.setTinyKey",
+        "title": "Static: Set TinyPng API key"
+      }
+    ],
+    "configuration": {
+      "title": "TinyPng API key",
+      "properties": {
+        "static.tinyKey": {
+          "type": "string",
+          "default": "",
+          "description": "TinyPng API key"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/archiver": "^6.0.2",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.93.0",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.9.1",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "tinify": "*"
+  },
+  "extensionDependencies": [
+    "ritwickdey.LiveServer"
+  ]
+}
